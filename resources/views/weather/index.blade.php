@@ -19,7 +19,7 @@
     <div class="row">
         <div class="card-group">
         @foreach ($forecastDay['hour'] as $key => $forecast)
-            @if ((int)$key % 2 == 0)
+            @if ((int)$key % 5 == 0)
                 <div class="card" style="width: 18rem;">
                     <img src="{{str_replace('64x64', '128x128', $forecast['condition']['icon'])}}" class="card-img-top" alt="...">
                     <h3 class="badge badge-primary" style="border-radius: 0px; color: #fff; font-size: 90%; padding: 0.5em 0.4em;">
