@@ -35,9 +35,9 @@ class OpenWeatherMapApi
             'x-rapidapi-host' => $this->getApiHost(),
         ])->get($endpoint, [
             "q" => "Nikolaev,ua",
+            "days" => "3"
         ]);
 
-        // return json_decode($response->body());
         return $response->json();
 
     }

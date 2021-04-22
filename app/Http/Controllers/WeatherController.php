@@ -27,12 +27,12 @@ class WeatherController extends Controller
 
         $location    = $weather['location'];
         $current     = $weather['current'];
-        $forecastDay = $weather['forecast']['forecastday'][0];
+        $forecastDays = $weather['forecast']['forecastday'];
 
         return view('weather.index', [
             'location' => $location,
             'current'  => $current,
-            'forecastDay' => $forecastDay
+            'forecastDays' => $forecastDays
         ]);
     }
 
