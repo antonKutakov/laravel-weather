@@ -2,10 +2,12 @@
 
 namespace Services\RapidApi;
 
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Http;
 
 class OpenWeatherMapApi
 {
+    use Notifiable;
 
     private $api_key = null;
     private $api_host = null;

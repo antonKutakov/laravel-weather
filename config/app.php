@@ -165,6 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
+        NotificationChannels\Telegram\TelegramServiceProvider::class,
 
         /*
          * Application Service Providers...

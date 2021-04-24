@@ -30,4 +30,10 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'telegram-bot-api' => [
+        'token' => env('TELEGRAM_BOT_TOKEN', '1773779927:AAFbSaf-8qhTja1VuvFG_RP5QuWm9tsJxjc'),
+        'name' => env('TELEGRAM_BOT_NAME', '@FREE_OW_bot'),
+        'bot_id' => env('TELEGRAM_BOT_ID', '00000')
+    ],
+
 ];

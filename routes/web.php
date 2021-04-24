@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\TasksController;
+use App\Http\Controllers\TelegramBotController;
 use App\Http\Controllers\WeatherController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,3 +27,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('tasks', TasksController::class)->middleware('auth');
 
 Route::get('/weather', [WeatherController::class, 'index'])->name('weather.index');
+
+Route::get('/telegram/bot', [TelegramBotController::class, 'index'])->name('telegram.index');
