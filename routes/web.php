@@ -28,4 +28,4 @@ Route::resource('tasks', TasksController::class)->middleware('auth');
 
 Route::get('/weather', [WeatherController::class, 'index'])->name('weather.index');
 
-Route::get('/telegram/bot', [TelegramBotController::class, 'index'])->name('telegram.index');
+Route::post('/telegram/bot', [TelegramBotController::class, 'handler'])->name('telegram.index');
