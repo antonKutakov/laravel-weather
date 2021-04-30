@@ -29,8 +29,6 @@ class WeatherController extends Controller
         $current     = $weather['current'];
         $forecastDays = $weather['forecast']['forecastday'];
 
-        dd($weather);
-
         return view('weather.index', [
             'location' => $location,
             'current'  => $current,

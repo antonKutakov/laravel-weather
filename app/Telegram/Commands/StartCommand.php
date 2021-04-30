@@ -2,10 +2,10 @@
 
 namespace App\Telegram\Commands;
 
+use Illuminate\Support\Facades\Log;
 use Telegram\Bot\Actions;
 use Telegram\Bot\Commands\Command;
-use Services\RapidApi\OpenWeatherMapApi;
-use Telegram\Bot\FileUpload\InputFile;
+use Telegram\Bot\Keyboard\Keyboard;
 
 class StartCommand extends Command
 {
@@ -13,10 +13,20 @@ class StartCommand extends Command
 
     protected $description = "Start working with bot";
 
+    public $emoji = "🚀";
+
     public function handle()
     {
-        $this->replyWithMessage(['text' => 'Hello! Thank you for using this bot. Type /getcurrentweather for receiving info.']);
         $this->replyWithChatAction(['action' => Actions::TYPING]);
-        $this->triggerCommand('help');
+
+        $this->replyWithMessage([
+            'text' => 'Hello! Thank you for using this bot. '
+            .PHP_EOL.
+            'Type /getcurrentweather for receiving info.'
+            .PHP_EOL.
+            'Type /show_menu for showing menu',
+        ]);
+
+        $this->triggerCommand('showmenu');
     }
 }

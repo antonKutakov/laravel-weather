@@ -13,6 +13,8 @@ class GetCurrentWeatherCommand extends Command
 
     protected $description = "Get current weather";
 
+    public $emoji = "⛅";
+
     private $weather_api = null;
 
     public function __construct()
@@ -22,24 +24,24 @@ class GetCurrentWeatherCommand extends Command
 
     public function handle()
     {
+        $this->replyWithChatAction(['action' => Actions::TYPING]);
+
         $weather = $this->weather_api->getCurrentWeather();
 
         $this->replyWithPhoto([
             'photo' => InputFile::create('https:'.str_replace('64x64', '128x128',$weather['current']['condition']['icon'])),
             'caption' => implode(PHP_EOL, [
-                'Город: '.$weather['location']['name'],
-                'Область: '.$weather['location']['region'],
-                'Страна: '.$weather['location']['country'],
-                'Дата: '.date('d M, Y', strtotime($weather['location']['localtime'])),
-                'Текущее время: '.date('H:i', strtotime($weather['location']['localtime'])),
-                'Температура: '.$weather['current']['temp_c'].'°С',
-                'Чувствуется как: '.$weather['current']['feelslike_c'].'°С',
-                'Погодные условия: '.$weather['current']['condition']['text'],
-                'Скорость ветра: '.$weather['current']['wind_kph'].'км/ч',
-                'Вероятность осадков сегодня: '.$weather['forecast']['forecastday'][0]['day']['daily_chance_of_rain'].'%',
+                'City: '.$weather['location']['name'],
+                'Region: '.$weather['location']['region'],
+                'Country: '.$weather['location']['country'],
+                'Current Date: '.date('d M, Y', strtotime($weather['location']['localtime'])),
+                'Current time: '.date('H:i', strtotime($weather['location']['localtime'])),
+                'Temperature: '.$weather['current']['temp_c'].'°С',
+                'Feels like: '.$weather['current']['feelslike_c'].'°С',
+                'Weather conditions: '.$weather['current']['condition']['text'],
+                'Wind speed: '.$weather['current']['wind_kph'].'км/ч',
+                'Chance of precipitation: '.$weather['forecast']['forecastday'][0]['day']['daily_chance_of_rain'].'%',
             ]),
         ]);
-
-        $this->replyWithChatAction(['action' => Actions::TYPING]);
     }
 }
