@@ -1,7 +1,7 @@
-<h1 style="color: red;">**Laravel weather telegram bot backend**</h1>
+<h1 style="color: red;"><b>Laravel weather telegram bot backend</b></h1>
 <br>
-**Link** https://t.me/FREE_OW_bot
+<b>Link:</b> https://t.me/FREE_OW_bot
 <br>
-**Based on:** Laravel 8, irazasayed/telegram-bot-sdk:^2.0
+<b>Based on:</b> Laravel 8, irazasayed/telegram-bot-sdk:^2.0
 <br>
-**Installation:** composer install
+<b>Installation:</b> composer install
